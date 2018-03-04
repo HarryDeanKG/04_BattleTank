@@ -4,6 +4,9 @@
 # Visual Studio 2015 database file
 *.VC.db
 
+#starter content
+*StarterContent
+
 # Compiled Object files
 *.slo
 *.lo
