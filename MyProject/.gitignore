@@ -8,7 +8,7 @@
 *StarterContent
 
 #exe
-*WindowsNoEditor
+WindowsNoEditor*
 
 # Compiled Object files
 *.slo
