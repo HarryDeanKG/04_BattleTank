@@ -23,5 +23,7 @@ protected:
 public:
 		ATank* GetControlledTank() const;
 	
-	
+		//start the tank so that it hits at the crosshair
+		void AimTowardsCrosshair();
+
 };
