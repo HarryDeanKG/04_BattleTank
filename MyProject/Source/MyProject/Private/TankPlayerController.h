@@ -18,6 +18,8 @@ class ATankPlayerController : public APlayerController
 protected:
 		virtual void BeginPlay() override;
 
+		virtual void Tick(float DeltaTime) override;
+
 public:
 		ATank* GetControlledTank() const;
 	
