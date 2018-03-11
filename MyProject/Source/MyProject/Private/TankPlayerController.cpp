@@ -21,6 +21,7 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	AimTowardsCrosshair();
 	//aim towards crosshair
 	//UE_LOG(LogTemp, Warning, TEXT("TickWorking"));
 
@@ -34,7 +35,11 @@ ATank* ATankPlayerController::GetControlledTank() const
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
-	if (!GetCtonrolledTank()) { return; }
+	if (!GetControlledTank()) { return; }
+
+	FVector HitLocation; //OUt parameter
+
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *HitLocation.ToString());
 
 	//Get world location, if lintrace through crosshair
 	//If it hits the landscape
