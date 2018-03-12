@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Tank.h"
 #include "AITankController.h"
 
 void AAITankController::BeginPlay()
@@ -19,8 +20,13 @@ void AAITankController::BeginPlay()
 void AAITankController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (GetPlayerTank()) {
+		//TODO move towards player
 
-	//UE_LOG(LogTemp, Warning, TEXT("TickWorking"));
+		//Aim towards player
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		//UE_LOG(LogTemp, Warning, TEXT("AI focusing on %s"), *PlayerLocation.ToString());
+	}
 
 }
 
@@ -32,6 +38,7 @@ ATank* AAITankController::GetControlledTank() const
 
 ATank* AAITankController::GetPlayerTank() const
 {
+	
 	return Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
 }
 

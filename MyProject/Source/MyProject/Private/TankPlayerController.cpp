@@ -23,8 +23,6 @@ void ATankPlayerController::Tick(float DeltaTime)
 
 	AimTowardsCrosshair();
 	//aim towards crosshair
-	//UE_LOG(LogTemp, Warning, TEXT("TickWorking"));
-
 }
 
 ATank* ATankPlayerController::GetControlledTank() const
@@ -41,8 +39,7 @@ void ATankPlayerController::AimTowardsCrosshair()
 
 	if (GetSightRayHitLocation(HitLocation))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
-		//TODO Tell ontrolled tank to aim at this point
+		GetControlledTank()->AimAt(HitLocation);
 	}
 	//Get world location, if lintrace through crosshair
 	//If it hits the landscape
