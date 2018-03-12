@@ -17,6 +17,10 @@ public:
 	ATank();
 
 	virtual void BeginPlay() override;
+	
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
 protected:
 	// Called when the game starts or when spawned
 	UTankAimingComponent * TankAimingComponent = nullptr;
