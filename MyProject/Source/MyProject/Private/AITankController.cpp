@@ -8,11 +8,11 @@ void AAITankController::BeginPlay()
 
 	auto PlayerController = GetPlayerTank();
 
-	if (!PlayerController)
+	/*if (!PlayerController)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AI does not see player"));
 	}
-	else { UE_LOG(LogTemp, Warning, TEXT("AI sees Player possessing %s"), *(PlayerController->GetName())); }
+	else { UE_LOG(LogTemp, Warning, TEXT("AI sees Player possessing %s"), *(PlayerController->GetName())); }*/
 }
 
 
@@ -26,14 +26,12 @@ void AAITankController::Tick(float DeltaTime)
 
 ATank* AAITankController::GetControlledTank() const
 {
-
 	return Cast<ATank>(GetPawn());
 }
 
 
 ATank* AAITankController::GetPlayerTank() const
 {
-
 	return Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
 }
 

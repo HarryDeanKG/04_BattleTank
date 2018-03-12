@@ -7,9 +7,7 @@
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class ATankPlayerController : public APlayerController
 {
@@ -25,5 +23,16 @@ public:
 	
 		//start the tank so that it hits at the crosshair
 		void AimTowardsCrosshair();
+
+
+private:
+		bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+		bool GetLookDirection(FVector2D ScreenLocation, FVector & LookDirection) const;
+
+		UPROPERTY(EditAnywhere)
+		float CrossHairXLocation = 0.5;
+
+		UPROPERTY(EditAnywhere)
+		float CrossHairYLocation = 0.33;
 
 };
