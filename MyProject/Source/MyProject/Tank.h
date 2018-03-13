@@ -34,4 +34,9 @@ public:
 
 	void AimAt(FVector HitLocation);
 	
+private:
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 100000; //TODO  Find a good fireing speed
+
+
 };
