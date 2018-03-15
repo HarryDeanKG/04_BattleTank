@@ -39,12 +39,12 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	);
 
 	if (bHaveAimSolution) {
-		UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s"), *OurTankName, *HitLocation.ToString(), *BarrelLocation);
+		//UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s"), *OurTankName, *HitLocation.ToString(), *BarrelLocation);
 		FVector AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrel(AimDirection);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("Cannot hit target"));
+		//UE_LOG(LogTemp, Warning, TEXT("Cannot hit target"));
 	}
 }
 
@@ -57,8 +57,7 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection) {
 	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
+	UE_LOG(LogTemp, Warning, TEXT("%f"), (DeltaRotator.Pitch));
 
-	//UE_LOG(LogTemp, Warning, TEXT("%s"), *DeltaRotator.ToString());
-
-	Barrel->Elevate(5);// TODO magic Number
+	Barrel->Elevate(DeltaRotator.Pitch);// TODO magic Number
 }
