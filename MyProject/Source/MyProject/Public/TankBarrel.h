@@ -16,8 +16,8 @@ class MYPROJECT_API UTankBarrel : public UStaticMeshComponent
 	
 	
 public:
-	
-	void Elevate(float DegreesPerSecond);
+	//-1 is max downwards, +1 is the maximum upwards.
+	void Elevate(float RelativeSpeed);
 
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)

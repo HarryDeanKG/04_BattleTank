@@ -32,6 +32,9 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
+		false,
+		0,
+		0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
 	);
 
@@ -39,6 +42,9 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s"), *OurTankName, *HitLocation.ToString(), *BarrelLocation);
 		FVector AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrel(AimDirection);
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("Cannot hit target"));
 	}
 }
 
